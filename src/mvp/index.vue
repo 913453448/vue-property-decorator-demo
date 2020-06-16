@@ -8,29 +8,24 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "../view/component";
-import UserControllerImp from "./UserControllerImp";
+import UserPresenterImp from "./UserPresenterImp";
 import IUserView from "./IUserView";
 
 @Component
 class UserViewImp extends Vue implements IUserView{
-  userController: UserControllerImp; //用户逻辑控制层
+  userPresenter: UserPresenterImp; //用户逻辑控制层
   name = ""; //用户名
   pwd = ""; //密码
   constructor() {
     super();
-    this.userController = new UserControllerImp();
+    this.userPresenter = new UserPresenterImp(this as IUserView);
   }
 
   /**
    * 去登录
    */
   onLogin() {
-    this.userController.login(this.name, this.pwd)
-      .then((user) => {
-        this.showMessage("欢迎你：" + user.name);
-      }).catch((error) => {
-      this.showMessage("登录失败-->" + error.message);
-    });
+    this.userPresenter.login(this.name, this.pwd);
   }
 
   /**

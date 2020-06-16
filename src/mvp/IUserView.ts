@@ -1,13 +1,13 @@
 /**
  * user view接口
  */
-import IUserController from "./IUserController";
+import IUserPresenter from "./IUserPresenter";
 
 export default interface IUserView {
   /**
    * 用户逻辑控制层
    */
-  userController: IUserController;
+  userPresenter: IUserPresenter;
 
   /**
    * 登录响应
