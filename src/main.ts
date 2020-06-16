@@ -1,7 +1,10 @@
 import Vue from "vue";
-import Demo from "./mvp/index.vue";
+import Demo from "./mvvm/index.vue";
+import {store} from "./mvvm/view-model";
+
 new Vue({
-    render(h){
-        return h(Demo);
-    }
+  store,
+  render(h) {
+    return h(Demo);
+  }
 }).$mount("#app");

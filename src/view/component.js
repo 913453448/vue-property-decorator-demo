@@ -65,6 +65,12 @@ function componentFactory(Component, options = {}) {
                     }
                 });
             }
+        } else if (descriptor.get || descriptor.set) {
+            // computed properties
+            (options.computed || (options.computed = {}))[key] = {
+                get: descriptor.get,
+                set: descriptor.set
+            }
         }
     });
     //通过类实例获取类属性值通过mixins给data
