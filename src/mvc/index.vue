@@ -9,10 +9,11 @@
 import Vue from "vue";
 import Component from "../view/component";
 import UserControllerImp from "./UserControllerImp";
+import IUserView from "./IUserView";
 
 @Component
-class UserViewImp extends Vue{
-  private userViewImp: UserControllerImp; //用户逻辑控制层
+class UserViewImp extends Vue implements IUserView{
+  userViewImp: UserControllerImp; //用户逻辑控制层
   name = ""; //用户名
   pwd = ""; //密码
   constructor() {
